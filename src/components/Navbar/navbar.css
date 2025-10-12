@@ -1,0 +1,17 @@
+.me-auto{
+    display: flex !important;
+  justify-content: space-evenly !important;
+  align-items: center;
+  width: 100%;
+   /* margin: auto; */
+}
+
+.custom-navbar {
+  background: linear-gradient(90deg, #8a0037 0%, #630303 100%) !important;
+}
+
+.custom-navbar .nav-link {
+  color: white
+}
+
+
