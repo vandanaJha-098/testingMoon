@@ -1,17 +1,17 @@
-.me-auto{
-    display: flex !important;
-  justify-content: space-evenly !important;
-  align-items: center;
-  width: 100%;
-   /* margin: auto; */
+.nav-link-emerald:hover {
+  color: #10b981 !important;
+  background: rgba(16,185,129,0.25) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(16,185,129,0.4) !important;
+  border-color: rgba(16,185,129,0.6) !important;
 }
 
-.custom-navbar {
-  background: linear-gradient(90deg, #8a0037 0%, #630303 100%) !important;
+@media (max-width: 991px) {
+  .custom-navbar .navbar-collapse {
+    background: rgba(15,27,20,0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
 }
-
-.custom-navbar .nav-link {
-  color: white
-}
-
-
