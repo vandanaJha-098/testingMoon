@@ -2,7 +2,7 @@ import React from 'react';
 import { SocialIcon } from 'react-social-icons';
 import LLogo from './L.png';
 
-const COMPANY_NAME = "MOONTECH INDIA RESEARCH AND TESTING LAB PVT LTD";
+const COMPANY_NAME = "MOONTECH INDIA TESTING AND RESEARCH LAB PVT LTD";
 const COMPANY_SHORT = "MTRL";
 
 const SOCIAL_LINKS = [
