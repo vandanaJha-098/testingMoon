@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Typography, Button, Stack, Container } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Box, Typography, Button, Stack } from '@mui/material';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -9,292 +9,293 @@ const OFFICE_ADDRESS = "MOONTECH INDIA RESEARCH AND TESTING LAB PVT LTD";
 const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/25%C2%B035'27.6%22N+85%C2%B002'32.0%22E/@25.5909914,85.0396501,17z/data=!3m1!4b1!4m4!3m3!8m2!3d25.5909914!4d85.042225?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D";
 const PHONE_NUMBER = "+918809601830";
 const EMAIL_ADDRESS = "mtrlindiainfo@gmail.com";
-const WHATSAPP_NUMBER = "8809601830"; // No '+' for wa.me links
+const WHATSAPP_NUMBER = "8809601830";
+
+function adjustColor(color, amount) {
+  const num = parseInt(color.replace("#", ""), 16);
+  const amt = Math.round(2.55 * amount);
+  const R = (num >> 16) + amt;
+  const G = (num >> 8 & 0x00FF) + amt;
+  const B = (num & 0x0000FF) + amt;
+  return "#" + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+    (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
+    (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
+}
 
 function ContactPage() {
+  const [cursor, setCursor] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setCursor({ x: e.clientX, y: e.clientY });
+    };
+    document.addEventListener('mousemove', handleMouseMove);
+    return () => document.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
-    <Box
-      sx={{
-        minHeight: '100vh',
-        width: '100vw',
-        p: 0,
-        m: 0,
-        overflowX: 'hidden',
-        // Light, energetic gradient background (contrasts with dark footer)
-        background: `linear-gradient(120deg, #f8fafc 0%, #e0eafc 100%)`,
-        position: 'relative',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          inset: 0,
-          zIndex: 0,
-          background: `radial-gradient(circle at 20% 30%, rgba(138,0,55,0.09) 0%, transparent 60%), 
-                       radial-gradient(circle at 80% 70%, rgba(99,3,3,0.08) 0%, transparent 60%)`,
-          pointerEvents: 'none',
-        },
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <Typography
-        variant="h3"
-        sx={{
-          color: '#8a0037',
-          fontWeight: 900,
-          letterSpacing: 2,
-          mb: 6,
-          mt: { xs: 5, md: 10 },
-          zIndex: 1,
-          textShadow: '0 6px 24px rgba(0,0,0,0.10)',
-        }}
-      >
-        Get in Touch
-      </Typography>
-      <Stack
-        direction={{ xs: 'column', md: 'row' }}
-        spacing={4}
-        alignItems="stretch"
-        justifyContent="center"
-        sx={{
-          width: '100%',
-          maxWidth: 1200,
-          zIndex: 1,
-        }}
-      >
-        {/* Office Direction */}
-        <GlassCard borderColor="#1976d2">
-          <NeumorphicIcon icon={<RoomIcon fontSize="large" sx={{ color: "#1976d2" }} />} />
-          <Typography variant="h6" sx={{ mt: 1, mb: 2, color: '#222' }}>
-            {OFFICE_ADDRESS}
-          </Typography>
-          <GradientButton
-            href={GOOGLE_MAPS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            color1="#1976d2"
-            color2="#21cbf3"
-          >
-            Get Directions
-          </GradientButton>
-        </GlassCard>
-
-        {/* Phone */}
-        <GlassCard borderColor="#43a047">
-          <NeumorphicIcon icon={<PhoneIcon fontSize="large" sx={{ color: "#43a047" }} />} />
-          <Typography variant="h6" sx={{ mt: 1, mb: 2, color: '#222' }}>
-            <a
-              href={`tel:${PHONE_NUMBER}`}
-              style={{
-                textDecoration: 'none',
-                color: '#43a047',
-                fontWeight: 700,
-                fontSize: '1.15rem',
-                letterSpacing: 1,
-              }}
-            >
-              {PHONE_NUMBER}
-            </a>
-          </Typography>
-          <GradientButton
-            href={`tel:${PHONE_NUMBER}`}
-            color1="#43a047"
-            color2="#b2ff59"
-          >
-            Call Now
-          </GradientButton>
-        </GlassCard>
-
-        {/* Email */}
-        <GlassCard borderColor="#d32f2f">
-          <NeumorphicIcon icon={<EmailIcon fontSize="large" sx={{ color: "#d32f2f" }} />} />
-          <Typography variant="h6" sx={{ mt: 1, mb: 2, color: '#222' }}>
-            <a
-              href={`mailto:${EMAIL_ADDRESS}`}
-              style={{
-                textDecoration: 'none',
-                color: '#d32f2f',
-                fontWeight: 700,
-                fontSize: '1.1rem',
-                letterSpacing: 1,
-              }}
-            >
-              {EMAIL_ADDRESS}
-            </a>
-          </Typography>
-          <GradientButton
-            href={`mailto:${EMAIL_ADDRESS}`}
-            color1="#d32f2f"
-            color2="#ff7961"
-          >
-            Send Email
-          </GradientButton>
-        </GlassCard>
-
-        {/* WhatsApp */}
-        <GlassCard borderColor="#25D366">
-          <NeumorphicIcon icon={<WhatsAppIcon fontSize="large" sx={{ color: "#25D366" }} />} />
-          <Typography variant="h6" sx={{ mt: 1, mb: 2, color: '#222' }}>
-            <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                textDecoration: 'none',
-                color: '#25D366',
-                fontWeight: 700,
-                fontSize: '1.1rem',
-                letterSpacing: 1,
-              }}
-            >
-              WhatsApp Chat
-            </a>
-          </Typography>
-          <GradientButton
-            href={`https://wa.me/${WHATSAPP_NUMBER}`}
-            target="_blank"
-            color1="#25D366"
-            color2="#a8ffeb"
-          >
-            Message
-          </GradientButton>
-        </GlassCard>
-      </Stack>
-
-      {/* Mobile Quick Action Buttons */}
+    <>
+      {/* ✅ RESPONSIVE CUSTOM CURSOR - HIDDEN ON MOBILE */}
       <Box
         sx={{
-          display: { xs: 'flex', md: 'none' },
-          gap: 2,
-          mt: 5,
-          zIndex: 2,
+          position: 'fixed',
+          width: { xs: 0, sm: 20 },
+          height: { xs: 0, sm: 20 },
+          border: { xs: 'none', sm: '2px solid rgba(224,242,254,0.8)' },
+          borderRadius: '50%',
+          pointerEvents: 'none',
+          zIndex: 9999,
+          left: `calc(${cursor.x}px - 10px)`,
+          top: `calc(${cursor.y}px - 10px)`,
+          transition: 'all 0.1s ease',
+          backdropFilter: 'blur(10px)',
+          background: 'rgba(224,242,254,0.1)',
+          boxShadow: '0 0 20px rgba(16,185,129,0.4)',
+          display: { xs: 'none', sm: 'block' }, // ✅ Hide on mobile
+        }}
+      />
+
+      <Box
+        sx={{
+          minHeight: '100vh', // ✅ Full viewport height
+          width: '100vw',
+          p: 0,
+          m: 0,
+          overflowX: 'hidden',
+          background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 40%, #cbd5e1 100%)',
+          position: 'relative',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+            zIndex: 0,
+            background: `
+              radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 0%, transparent 50%)
+            `,
+            pointerEvents: 'none',
+          },
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
           justifyContent: 'center',
-          flexWrap: 'wrap',
+          py: { xs: 2, sm: 4 }, // ✅ Responsive padding
+          px: { xs: 1, sm: 0 }, // ✅ Mobile side padding
         }}
       >
-        <GradientButton
-          startIcon={<PhoneIcon fontSize="large" />}
-          href={`tel:${PHONE_NUMBER}`}
-          color1="#43a047"
-          color2="#b2ff59"
+        {/* ✅ RESPONSIVE HERO TITLE */}
+        <Typography
+          variant="h3"
+          sx={{
+            color: '#e0f2fe',
+            fontWeight: 900,
+            letterSpacing: { xs: 1, sm: 2 },
+            mb: { xs: 2, sm: 4 },
+            zIndex: 2,
+            fontSize: { xs: '1.5rem', sm: '2rem', md: '3rem' }, // ✅ Mobile friendly
+            textShadow: '0 0 40px rgba(16,185,129,0.5)',
+            background: 'rgba(16,185,129,0.15)',
+            backdropFilter: 'blur(20px)',
+            padding: { xs: '0.6rem 1.2rem', sm: '0.8rem 1.5rem', md: '1rem 2rem' },
+            borderRadius: '20px',
+            border: '1px solid rgba(16,185,129,0.4)',
+            textAlign: 'center',
+            lineHeight: 1.2,
+          }}
         >
-          Call
-        </GradientButton>
-        <GradientButton
-          startIcon={<WhatsAppIcon fontSize="large" />}
-          href={`https://wa.me/${WHATSAPP_NUMBER}`}
-          target="_blank"
-          color1="#25D366"
-          color2="#a8ffeb"
+          Get in Touch
+        </Typography>
+
+        {/* ✅ RESPONSIVE CARDS GRID */}
+        <Stack
+          direction={{ xs: 'column', sm: 'row' }}
+          spacing={{ xs: 2, sm: 3 }}
+          sx={{
+            width: { xs: '100%', sm: '100%' },
+            maxWidth: { xs: 'none', sm: 1200 },
+            px: { xs: 2, sm: 3 },
+            zIndex: 2,
+            justifyContent: { xs: 'center', sm: 'flex-start' },
+          }}
         >
-          WhatsApp
-        </GradientButton>
-        <GradientButton
-          startIcon={<EmailIcon fontSize="large" />}
-          href={`mailto:${EMAIL_ADDRESS}`}
-          color1="#d32f2f"
-          color2="#ff7961"
+          <EmeraldGlassCard 
+            color="#10b981" 
+            icon={<RoomIcon />} 
+            title={OFFICE_ADDRESS}
+            buttonText="Directions"
+            href={GOOGLE_MAPS_URL}
+            target="_blank"
+          />
+          <EmeraldGlassCard 
+            color="#f59e0b" 
+            icon={<PhoneIcon />} 
+            title={PHONE_NUMBER}
+            href={`tel:${PHONE_NUMBER}`}
+            buttonText="Call"
+          />
+          <EmeraldGlassCard 
+            color="#fbbc04" 
+            icon={<EmailIcon />} 
+            title={EMAIL_ADDRESS}
+            href={`mailto:${EMAIL_ADDRESS}`}
+            buttonText="Email"
+          />
+          <EmeraldGlassCard 
+            color="#10b981" 
+            icon={<WhatsAppIcon />} 
+            title="WhatsApp"
+            href={`https://wa.me/${WHATSAPP_NUMBER}`}
+            target="_blank"
+            buttonText="Chat"
+          />
+        </Stack>
+
+        {/* ✅ MOBILE QUICK ACTIONS - LARGER TOUCH TARGETS */}
+        <Stack
+          direction={{ xs: 'column', sm: 'row' }}
+          spacing={{ xs: 1.5, sm: 1.5 }}
+          sx={{
+            display: { xs: 'flex', md: 'none' },
+            mt: { xs: 2, sm: 3 },
+            zIndex: 3,
+            width: { xs: '90%', sm: 'auto' },
+            mx: 'auto',
+            justifyContent: 'center',
+          }}
         >
-          Email
-        </GradientButton>
-        <GradientButton
-          startIcon={<RoomIcon fontSize="large" />}
-          href={GOOGLE_MAPS_URL}
-          target="_blank"
-          color1="#1976d2"
-          color2="#21cbf3"
-        >
-          Map
-        </GradientButton>
+          <EmeraldQuickButton icon={<PhoneIcon />} color="#f59e0b" href={`tel:${PHONE_NUMBER}`} label="Call" />
+          <EmeraldQuickButton icon={<WhatsAppIcon />} color="#10b981" href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" label="WhatsApp" />
+          <EmeraldQuickButton icon={<EmailIcon />} color="#fbbc04" href={`mailto:${EMAIL_ADDRESS}`} label="Email" />
+        </Stack>
       </Box>
 
-     
-    </Box>
+      <style jsx global>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+      `}</style>
+    </>
   );
 }
 
-// Glassmorphism Card Component
-function GlassCard({ children, borderColor }) {
+// ✅ FULLY RESPONSIVE CARD COMPONENT
+function EmeraldGlassCard({ color, icon, title, href, buttonText, target }) {
   return (
     <Box
       sx={{
-        flex: '1 1 240px',
-        minWidth: 220,
-        maxWidth: 300,
-        border: `2.5px solid ${borderColor}`,
-        borderRadius: 4,
-        p: 3,
-        textAlign: 'center',
-        boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.19)',
-        background: 'rgba(255,255,255,0.25)',
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)',
+        flex: { xs: '1 1 100%', sm: '1 1 45%' }, // ✅ Mobile: full width, Desktop: 45%
+        minHeight: { xs: 160, sm: 200 }, // ✅ Smaller on mobile
+        maxWidth: { xs: '350px', sm: 'none' }, // ✅ Limit mobile width
+        p: { xs: 2, sm: 2.5 }, // ✅ Responsive padding
+        borderRadius: '20px',
+        background: 'rgba(16,185,129,0.30)',
+        backdropFilter: 'blur(20px)',
+        border: `1px solid rgba(16,185,129,0.7)`,
+        boxShadow: `0 25px 50px rgba(16,185,129,0.4)`,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        transition: 'transform 0.3s, box-shadow 0.3s',
-        cursor: 'pointer',
+        textAlign: 'center',
+        transition: 'all 0.3s ease',
+        color: '#e0f2fe',
+        mx: { xs: 'auto', sm: 0 }, // ✅ Center cards on mobile
         '&:hover': {
-          transform: 'scale(1.06) translateY(-4px)',
-          boxShadow: `0 12px 36px 0 ${borderColor}40`,
-          background: 'rgba(255,255,255,0.38)',
+          transform: 'translateY(-8px)',
+          boxShadow: `0 35px 60px rgba(16,185,129,0.5)`,
+          background: 'rgba(16,185,129,0.40)',
         },
       }}
     >
-      {children}
+      <Box
+        sx={{
+          width: { xs: 50, sm: 60 }, // ✅ Smaller icons on mobile
+          height: { xs: 50, sm: 60 },
+          borderRadius: '50%',
+          background: `linear-gradient(145deg, rgba(224,242,254,0.5), rgba(224,242,254,0.2))`,
+          backdropFilter: 'blur(16px)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          mb: { xs: 1.5, sm: 2 },
+          border: `2px solid ${color}`,
+        }}
+      >
+        {React.cloneElement(icon, { sx: { color, fontSize: { xs: 24, sm: 28 } } })}
+      </Box>
+      
+      <Typography
+        variant="body1"
+        sx={{
+          fontSize: { xs: '0.85rem', sm: '0.9rem', md: '1rem' }, // ✅ Responsive text
+          fontWeight: 700,
+          mb: { xs: 1.5, sm: 2 },
+          lineHeight: { xs: 1.4, sm: 1.3 },
+          maxWidth: { xs: 160, sm: 180 },
+          letterSpacing: '0.3px',
+          wordBreak: 'break-word',
+          px: 1, // ✅ Prevent text cutoff on mobile
+        }}
+      >
+        {title}
+      </Typography>
+      
+      <Button
+        href={href}
+        target={target}
+        component="a"
+        rel={target ? "noopener noreferrer" : undefined}
+        sx={{
+          px: { xs: 2.5, sm: 3 }, // ✅ Larger touch target on mobile
+          py: { xs: 1, sm: 1 },
+          borderRadius: '20px',
+          fontWeight: 600,
+          fontSize: { xs: '0.85rem', sm: '0.9rem' },
+          background: `linear-gradient(135deg, ${color} 0%, ${adjustColor(color, 20)} 100%)`,
+          color: '#ffffff',
+          boxShadow: `0 6px 20px ${color}40`,
+          textTransform: 'none',
+          minWidth: { xs: '100px', sm: '120px' }, // ✅ Minimum touch size
+          '&:hover': {
+            transform: 'translateY(-2px)',
+            boxShadow: `0 12px 30px ${color}50`,
+          },
+        }}
+      >
+        {buttonText}
+      </Button>
     </Box>
   );
 }
 
-// Neumorphic Icon Wrapper
-function NeumorphicIcon({ icon }) {
-  return (
-    <Box
-      sx={{
-        width: 56,
-        height: 56,
-        borderRadius: '50%',
-        background: 'linear-gradient(145deg, #f5f6fa 60%, #e2e2e2 100%)',
-        boxShadow: '6px 6px 18px #d1d1d1, -6px -6px 18px #ffffff',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        mb: 1,
-      }}
-    >
-      {icon}
-    </Box>
-  );
-}
-
-// Gradient Button
-function GradientButton({ color1, color2, children, ...props }) {
+// ✅ MOBILE-OPTIMIZED QUICK BUTTONS
+function EmeraldQuickButton({ icon, color, href, label, target }) {
   return (
     <Button
-      {...props}
+      href={href}
+      target={target}
+      component="a"
+      rel={target ? "noopener noreferrer" : undefined}
       sx={{
-        mt: 1,
-        px: 3,
-        py: 1,
-        borderRadius: 3,
-        fontWeight: 700,
-        fontSize: '1.05rem',
-        background: `linear-gradient(90deg, ${color1} 0%, ${color2} 100%)`,
-        color: '#fff',
-        boxShadow: `0 2px 12px 0 ${color1}40`,
-        textTransform: 'none',
-        transition: 'background 0.2s, transform 0.2s, box-shadow 0.2s',
+        px: { xs: 3, sm: 2.5 }, // ✅ Extra padding for mobile fingers
+        py: { xs: 1.5, sm: 1.2 }, // ✅ Taller buttons on mobile
+        borderRadius: '16px',
+        minWidth: { xs: 100, sm: 70 }, // ✅ Perfect touch target size
+        fontSize: { xs: '0.9rem', sm: '0.8rem' },
+        background: `linear-gradient(135deg, ${color} 0%, ${adjustColor(color, 15)} 100%)`,
+        color: '#ffffff',
+        fontWeight: 600,
+        boxShadow: `0 6px 20px ${color}40`,
+        height: { xs: 50, sm: 42 }, // ✅ Fixed height for mobile
         '&:hover': {
-          background: `linear-gradient(90deg, ${color2} 0%, ${color1} 100%)`,
-          transform: 'scale(1.07) translateY(-2px)',
-          boxShadow: `0 6px 24px 0 ${color1}80`,
+          transform: 'translateY(-2px) scale(1.05)',
+          boxShadow: `0 12px 30px ${color}50`,
         },
       }}
-      disableElevation
     >
-      {children}
+      {React.cloneElement(icon, { sx: { fontSize: { xs: 22, sm: 20 }, mr: { xs: 0.8, sm: 0.5 } } })}
+      {label}
     </Button>
   );
 }
