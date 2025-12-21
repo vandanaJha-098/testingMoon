@@ -243,7 +243,6 @@ function ServicesPage() {
           Testing Services
         </Typography>
         <Typography sx={{ color: '#000000', fontSize: '1.1rem', fontWeight: 500, maxWidth: 500, mx: 'auto' }}>
-          Quality Test Lab - Patna, Bihar
         </Typography>
       </Box>
 
@@ -406,3 +405,4 @@ function ServicesPage() {
 }
 
 export default ServicesPage;
+
