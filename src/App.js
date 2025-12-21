@@ -8,7 +8,6 @@ import CompanyPage from './components/logo/logo';
 import Footer from './components/Footer/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ThreeImagesRowFixed from './components/Client/Client.jsx'
-// import { AboutUsPage } from '@mui/icons-material';
 import AboutUsPage from './components/About/About';
 import ServicesPage from './components/Service/Service';
 import MontechPhoto from './photo/MontechPhoto.jpg';
@@ -20,12 +19,7 @@ import Photo5 from './photo/photo5.jpg';
 import Photo6 from './photo/photo6.jpg';
 import Photo7 from './photo/photo7.jpg';
 import Photo8 from './photo/photo8.jpg';
-import Photo9 from './photo/photo9.jpg';
-import Photo10 from './photo/photo10.jpg';
-import Photo11 from './photo/images 2.jpeg';
-import Photo12 from './photo/image9.webp';
-import Photo13 from './photo/images1.jpeg';
-import Photo14 from './photo/images4.jpeg';
+
 
 const photos = [
   { id: 11, url: MontechPhoto, title: 'Mountain' },
@@ -49,7 +43,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home photos={photos} photosPerPage={1} />} />
       <Route path="/contact" element={<ContactPage/>} />
-      <Route path="/client" element={<Home photos={photos} photosPerPage={1} />} />
+      <Route path="/client" element={<ThreeImagesRowFixed />} />
       <Route path="/accrediation" element={<Home photos={photos} photosPerPage={1} />} />
       <Route path="/career" element={<Home photos={photos} photosPerPage={1} />} />
       <Route path="/about" element={<AboutUsPage/>} />
