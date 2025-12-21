@@ -3,6 +3,7 @@ import { SocialIcon } from 'react-social-icons';
 import LLogo from './L.png';
 
 const COMPANY_NAME = "MOONTECH INDIA RESEARCH AND TESTING LAB PVT LTD";
+const COMPANY_SHORT = "MTRL";
 
 const SOCIAL_LINKS = [
   "https://facebook.com/",
@@ -13,6 +14,16 @@ const SOCIAL_LINKS = [
 ];
 
 function CompanyPage() {
+  // ✅ Detect mobile with useState + useEffect
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <div style={{
       width: '100%',
@@ -26,7 +37,7 @@ function CompanyPage() {
       height: '80px',
       boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
     }}>
-      {/* SIMPLE LOGO CONTAINER */}
+      {/* LOGO CONTAINER */}
       <div style={{
         background: '#ffffff',
         borderRadius: '12px',
@@ -36,9 +47,8 @@ function CompanyPage() {
         gap: '16px',
         boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
       }}>
-        {/* CUSTOM LOGO IMAGE - L.png */}
         <img 
-        src={LLogo}
+          src={LLogo}
           alt="Moontech Logo"
           style={{
             height: 40,
@@ -48,30 +58,26 @@ function CompanyPage() {
             transition: 'all 0.3s ease',
             cursor: 'pointer'
           }}
-          onMouseEnter={(e) => {
-            e.target.style.transform = 'scale(1.05)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.transform = 'scale(1)';
-          }}
+          onMouseEnter={(e) => { e.target.style.transform = 'scale(1.05)'; }}
+          onMouseLeave={(e) => { e.target.style.transform = 'scale(1)'; }}
         />
         
-        {/* SIMPLE TEXT */}
+        {/* ✅ REACT CONDITIONAL - MTRL on mobile */}
         <span style={{
-          fontSize: '1rem',
+          fontSize: isMobile ? '0.9rem' : '1rem',
           fontWeight: '700',
           color: '#1f2937',
           letterSpacing: '1px',
           textTransform: 'uppercase',
           fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif'
         }}>
-          {COMPANY_NAME}
+          {isMobile ? COMPANY_SHORT : COMPANY_NAME}
         </span>
       </div>
 
-      {/* SIMPLE SOCIAL ICONS */}
+      {/* SOCIAL ICONS - Hide on mobile */}
       <div style={{
-        display: 'flex',
+        display: isMobile ? 'none' : 'flex',
         gap: 8,
         background: '#ffffff',
         borderRadius: '12px',
