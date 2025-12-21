@@ -1,183 +1,186 @@
-import React from 'react';
-import { Container, Row, Col, ListGroup } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
-const detailBox = {
-  background: '#FFD6DC', // Button background color
-  borderRadius: '18px',
-  boxShadow: '0 4px 24px rgba(0,0,0,0.10)',
-  padding: '0.9rem 1.2rem',
-  marginBottom: '0.8rem',
-  color: '#8a0037',
-  fontWeight: 600,
-  fontSize: '1.07rem',
-  letterSpacing: '1px',
-  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-  display: 'flex',
-  alignItems: 'center',
-  gap: '0.7rem',
-  border: '1px solid #ffd6dc40',
-};
-
-const stylishHeading = {
-  color: '#FFD6DC',
-  fontWeight: 900,
-  letterSpacing: '2px',
-  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-  textShadow: '1px 2px 8px rgba(0,0,0,0.25)',
-  fontSize: '2.1rem',
-  marginBottom: '1.2rem',
-};
-
-const linkStyle = {
-  display: 'inline-block',
-  padding: '10px 22px',
-  marginBottom: '12px',
-  borderRadius: '25px',
-  background: 'rgba(255,214,220,0.85)',
-  color: '#8a0037',
-  textDecoration: 'none',
-  fontWeight: 600,
-  letterSpacing: '1px',
-  boxShadow: '0 2px 8px rgba(0,0,0,0.09)',
-  transition: 'background 0.2s, color 0.2s, transform 0.2s',
-};
-
-const linkHoverStyle = {
-  background: '#8a0037',
-  color: '#FFD6DC',
-  textDecoration: 'none',
-  transform: 'translateY(-2px) scale(1.04)',
-};
-
-function Footer() {
-  const [hovered, setHovered] = React.useState(null);
+const Footer = () => {
+  const [hovered, setHovered] = useState(null);
 
   const links = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About Us' },
-    { href: '/services', label: 'Services' },
     { href: '/contact', label: 'Contact' },
   ];
 
+  const services = [
+    { href: '/services', label: 'Testing Services' },
+    { href: '/', label: 'Research Lab' },
+    { href: '/', label: 'Certifications' },
+    { href: '/', label: 'Consulting' },
+  ];
+
   const addressDetails = [
-    { label: 'Company', value: 'Moontech India Testing and Research Lab', icon: 'bi-building' },
-    { label: 'Address', value: 'ChanakyaPuri Garikhana Khagaul (Back of Batala), Danapur, Bihar 801105', icon: 'bi-geo-alt' },
-    { label: 'Contact', value: '8809601830, 9718830384, 8986470795', icon: 'bi-telephone' },
-    { label: 'Email', value: 'mtrlindiainfo@gmail.com', icon: 'bi-envelope' },
+    { label: 'Company', value: 'Moontech India Testing and Research Lab', icon: '🏢' },
+    { label: 'Address', value: 'ChanakyaPuri Garikhana Khagaul (Back of Batala), Danapur, Bihar 801105', icon: '📍' },
+    { label: 'Contact', value: '8809601830, 9718830384, 8986470795', icon: '📞' },
+    { label: 'Email', value: 'mtrlindiainfo@gmail.com', icon: '✉️' },
   ];
 
   return (
     <div
-      className="py-5"
+      className="py-4"
       style={{
-        minHeight: '30vh',
-        background: 'linear-gradient(90deg, #8a0037 0%, #630303 100%)',
+        minHeight: '35vh',
+        background: 'linear-gradient(135deg, #0f1b14 0%, #1a2a1e 40%, #2d5039 100%)',
         width: '100%',
-        borderTopLeftRadius: '36px',
-        borderTopRightRadius: '36px',
-        boxShadow: '0 -4px 24px rgba(0,0,0,0.10)',
+        borderTop: '12px solid #f8fafc',
       }}
     >
       <Container fluid>
-        <Row className="justify-content-center align-items-stretch">
-          {/* Address Details */}
-          <Col
-            xs={12}
-            md={5}
-            className="d-flex flex-column justify-content-center mb-4 mb-md-0 me-md-5"
-          >
-            <h4 style={stylishHeading}>Contact & Address</h4>
-            {addressDetails.map((item, idx) => (
-              <div key={idx} style={detailBox}>
-                {item.icon && (
-                  <i className={`bi ${item.icon}`} style={{ fontSize: '1.3rem', color: '#8a0037', opacity: 0.8 }}></i>
-                )}
-                <span style={{ fontWeight: 700 }}>{item.label}:</span>
-                <span>{item.value}</span>
-              </div>
-            ))}
-          </Col>
-
-          {/* Important Links */}
-          <Col
-            xs={12}
-            md={5}
-            className="d-flex flex-column justify-content-center mb-4 mb-md-0"
-          >
-            <div style={{
-              background: 'rgba(255,255,255,0.60)',
-              borderRadius: '26px',
-              boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
-              padding: '2.1rem 1.5rem',
-              minHeight: 220,
-              backdropFilter: 'blur(2px)',
-              border: '1px solid #ffd6dc40',
-            }}>
-              <h4 style={{
-                ...stylishHeading,
-                fontSize: '1.5rem',
-                marginBottom: '1rem',
-                color: '#8a0037',
-                textShadow: 'none'
-              }}>Important Links</h4>
-              <ListGroup variant="flush">
-                {links.map((link, idx) => (
-                  <ListGroup.Item
-                    key={link.href}
+        <Row className="g-4 align-items-stretch">
+          {/* LEFT: Contact Info */}
+          <Col xs={12} md={4}>
+            <div className="h-100 d-flex flex-column justify-content-between p-3">
+              <div>
+                <h5 style={{ 
+                  color: '#10b981', 
+                  fontWeight: 800, 
+                  fontSize: '1.6rem', 
+                  marginBottom: '1.5rem', 
+                  letterSpacing: '1px', 
+                  textShadow: '0 0 20px rgba(16,185,129,0.5)' 
+                }}>
+                  Contact Info
+                </h5>
+                {addressDetails.map((item, idx) => (
+                  <div
+                    key={idx}
                     style={{
-                      background: 'transparent',
-                      border: 'none',
-                      padding: 0,
+                      background: 'rgba(16,185,129,0.15)',
+                      borderRadius: '16px',
+                      padding: '1rem 1.2rem',
+                      marginBottom: '0.8rem',
+                      color: '#e0f2fe',
+                      fontWeight: 500,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.8rem',
+                      backdropFilter: 'blur(16px)',
+                      border: '1px solid rgba(16,185,129,0.4)',
                     }}
                   >
+                    <span style={{ fontSize: '1.2rem', filter: 'drop-shadow(0 0 8px rgba(16,185,129,0.4))' }}>{item.icon}</span>
+                    <span style={{ fontWeight: 700, color: '#10b981', minWidth: '70px' }}>{item.label}:</span>
+                    <span>{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Col>
+
+          {/* MIDDLE: Services */}
+          <Col xs={12} md={4}>
+            <div className="h-100 d-flex flex-column justify-content-between p-3">
+              <div>
+                <h5 style={{ 
+                  color: '#f59e0b', 
+                  fontWeight: 800, 
+                  fontSize: '1.6rem', 
+                  marginBottom: '1.5rem', 
+                  letterSpacing: '1px', 
+                  textShadow: '0 0 20px rgba(245,158,11,0.5)' 
+                }}>
+                  Our Services
+                </h5>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                  {services.map((service, idx) => (
                     <a
+                      key={service.href}
+                      href={service.href}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        padding: '0.8rem 1.2rem',
+                        borderRadius: '12px',
+                        background: hovered === `service-${idx}` ? 'rgba(245,158,11,0.25)' : 'rgba(16,185,129,0.1)',
+                        color: hovered === `service-${idx}` ? '#f59e0b' : '#e0f2fe',
+                        textDecoration: 'none',
+                        fontWeight: 600,
+                        transition: 'all 0.3s ease',
+                        backdropFilter: 'blur(16px)',
+                        border: hovered === `service-${idx}` ? '1px solid rgba(245,158,11,0.5)' : '1px solid rgba(16,185,129,0.2)',
+                      }}
+                      onMouseEnter={() => setHovered(`service-${idx}`)}
+                      onMouseLeave={() => setHovered(null)}
+                    >
+                      {service.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Col>
+
+          {/* RIGHT: Quick Links - SAME AS SERVICES (NO BORDER) */}
+          <Col xs={12} md={4}>
+            <div className="h-100 d-flex flex-column justify-content-between p-3">
+              <div>
+                <h5 style={{ 
+                  color: '#fbbc04', 
+                  fontWeight: 800, 
+                  fontSize: '1.6rem', 
+                  marginBottom: '1.5rem', 
+                  letterSpacing: '1px', 
+                  textShadow: '0 0 20px rgba(251,191,36,0.5)' 
+                }}>
+                  Quick Links
+                </h5>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                  {links.map((link, idx) => (
+                    <a
+                      key={link.href}
                       href={link.href}
-                      style={
-                        hovered === idx
-                          ? { ...linkStyle, ...linkHoverStyle }
-                          : linkStyle
-                      }
-                      onMouseEnter={() => setHovered(idx)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        padding: '0.8rem 1.2rem',
+                        borderRadius: '12px',
+                        background: hovered === `link-${idx}` ? 'rgba(251,191,36,0.25)' : 'rgba(16,185,129,0.1)',
+                        color: hovered === `link-${idx}` ? '#fbbc04' : '#e0f2fe',
+                        textDecoration: 'none',
+                        fontWeight: 600,
+                        transition: 'all 0.3s ease',
+                        backdropFilter: 'blur(16px)',
+                        border: hovered === `link-${idx}` ? '1px solid rgba(251,191,36,0.5)' : '1px solid rgba(16,185,129,0.2)',
+                      }}
+                      onMouseEnter={() => setHovered(`link-${idx}`)}
                       onMouseLeave={() => setHovered(null)}
                     >
                       {link.label}
                     </a>
-                  </ListGroup.Item>
-                ))}
-              </ListGroup>
+                  ))}
+                </div>
+              </div>
             </div>
           </Col>
         </Row>
 
-        {/* Footer Bottom */}
-        <Row className="mt-5">
+        {/* Clean Bottom */}
+        <Row className="mt-4">
           <Col>
-            <div
-              style={{
-                width: '100%',
-                padding: '1.7rem 0 0.7rem 0',
-                color: '#FFD6DC',
-                textAlign: 'center',
-                fontWeight: 600,
-                fontSize: '1.13rem',
-                letterSpacing: 1,
-                fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-                opacity: 0.97,
-                borderTop: '1px solid #ffd6dc40',
-              }}
-            >
-              © 2025 <span style={{ color: '#fff', fontWeight: 700 }}>Moontech India Testing and Research Lab</span>. All rights reserved.
+            <div style={{ 
+              textAlign: 'center', 
+              color: 'rgba(34,197,94,0.95)', 
+              fontWeight: 600, 
+              fontSize: '0.95rem', 
+              paddingTop: '1.5rem', 
+              borderTop: '1px solid rgba(16,185,129,0.4)' 
+            }}>
+              © 2025 Moontech India Testing and Research Lab. All rights reserved.
             </div>
           </Col>
         </Row>
       </Container>
-      {/* Bootstrap Icons CDN (if not already included in your project) */}
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-      />
     </div>
   );
-}
+};
 
 export default Footer;
