@@ -1,6 +1,6 @@
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
-import LOGO_URL from '../../photo/L.png';
+import LLogo from './L.png';
 
 const COMPANY_NAME = "MOONTECH INDIA RESEARCH AND TESTING LAB PVT LTD";
 
@@ -19,36 +19,79 @@ function CompanyPage() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      background: '#fafafa',
-      padding: '18px 32px',
+      background: '#ffffff',
+      borderBottom: '3px solid #ffffff',
+      padding: '16px 24px',
       boxSizing: 'border-box',
-      boxShadow: '0 2px 10px #0001',
-      marginTop :'-10px',
-      marginBottom : ' 10px'
+      height: '80px',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
     }}>
-      {/* Logo and Company Name together on the left */}
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <img
-          src={LOGO_URL}
-          alt="Company Logo"
-          style={{ height: 80, width: 80, borderRadius: 12, objectFit: 'contain' }}
+      {/* SIMPLE LOGO CONTAINER */}
+      <div style={{
+        background: '#ffffff',
+        borderRadius: '12px',
+        padding: '12px 20px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '16px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+      }}>
+        {/* CUSTOM LOGO IMAGE - L.png */}
+        <img 
+        src={LLogo}
+          alt="Moontech Logo"
+          style={{
+            height: 40,
+            width: 40,
+            borderRadius: '8px',
+            objectFit: 'cover',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.transform = 'scale(1.05)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = 'scale(1)';
+          }}
         />
+        
+        {/* SIMPLE TEXT */}
         <span style={{
-          fontSize: '1.5rem',
-          fontWeight: 700,
-          letterSpacing: 1,
-          color: '#8a0037',
-          marginLeft: 20,
-          whiteSpace: 'nowrap'
+          fontSize: '1rem',
+          fontWeight: '700',
+          color: '#1f2937',
+          letterSpacing: '1px',
+          textTransform: 'uppercase',
+          fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif'
         }}>
           {COMPANY_NAME}
         </span>
       </div>
 
-      {/* Social Media Icons on the right */}
-      <div style={{ display: 'flex', gap: 16 }}>
-        {SOCIAL_LINKS.map(url => (
-          <SocialIcon key={url} url={url} style={{ height: 32, width: 32 }} target="_blank" rel="noopener noreferrer" />
+      {/* SIMPLE SOCIAL ICONS */}
+      <div style={{
+        display: 'flex',
+        gap: 8,
+        background: '#ffffff',
+        borderRadius: '12px',
+        padding: '8px 12px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+      }}>
+        {SOCIAL_LINKS.map((url, index) => (
+          <SocialIcon
+            key={url}
+            url={url}
+            style={{
+              height: 28,
+              width: 28,
+              borderRadius: '50%',
+              border: '2px solid #1f2937',
+              transition: 'all 0.3s ease'
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
+          />
         ))}
       </div>
     </div>
