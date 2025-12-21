@@ -1,58 +1,78 @@
-// import logo from './logo.svg';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './App.css';
-import Home from './components/Home/Home';
-import MyNavbar from './components/Navbar/navbar';
-import ContactPage from './components/Contact/contact';
-import CompanyPage from './components/logo/logo';
-import Footer from './components/Footer/Footer';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ThreeImagesRowFixed from './components/Client/Client.jsx'
-// import { AboutUsPage } from '@mui/icons-material';
-import AboutUsPage from './components/About/About';
-import ServicesPage from './components/Service/Service';
-import MontechPhoto from './photo/MontechPhoto.jpg';
-import Photo1 from './photo/photo1.jpg';
-import Photo2 from './photo/photo2.png';
-import Photo3 from './photo/photo3.jpg';
-import Photo4 from './photo/photo4.jpg';
-import Photo5 from './photo/photo5.jpg';
-import Photo6 from './photo/photo6.jpg';
-import Photo7 from './photo/photo7.jpg';
-import Photo8 from './photo/photo8.jpg';
+import React from 'react';
+import { Grid, Box } from '@mui/material';
 
+import img1 from '../../photo/indian-oil.jpg';
+import img2 from '../../photo/LandT.jpeg';
+import img3 from '../../photo/dmrc.jpg';
+import img4 from '../../photo/petron.png';
+import img5 from '../../photo/nbcc.jpg';
 
-const photos = [
-  { id: 11, url: MontechPhoto, title: 'Mountain' },
-  { id: 1, url: Photo1, title: 'Photo 1' },
-  { id: 2, url: Photo2, title: 'Photo 2' },
-  { id: 3, url: Photo3, title: 'Photo 3' },
-  { id: 4, url: Photo4, title: 'Photo 4' },
-  { id: 5, url: Photo5, title: 'Photo 5' },
-  { id: 6, url: Photo6, title: 'Photo 6' },
-  { id: 7, url: Photo7, title: 'Photo 7' },
-  { id: 8, url: Photo8, title: 'Photo 8' },
-  
-];
+const images = [img1, img2, img3, img4, img5];
 
-function App() {
+function ThreeImagesRowFixed() {
   return (
-    <Router>
-      <CompanyPage/>
-      <MyNavbar />
-     
-    <Routes>
-      <Route path="/" element={<Home photos={photos} photosPerPage={1} />} />
-      <Route path="/contact" element={<ContactPage/>} />
-      <Route path="/client" element={<ThreeImagesRowFixed />} />
-      <Route path="/accrediation" element={<Home photos={photos} photosPerPage={1} />} />
-      <Route path="/career" element={<Home photos={photos} photosPerPage={1} />} />
-      <Route path="/about" element={<AboutUsPage/>} />
-      <Route path="/services" element={<ServicesPage/>} />
-    </Routes>
-    <Footer/>
-  </Router>
+    <Box sx={{ width: '100vw', minHeight: '100vh', bgcolor: '#f5f6fa', p: 4 }}>
+      <Grid container spacing={4} justifyContent="center">
+        {images.map((src, idx) => (
+          <Grid item key={idx} sx={{ width: { xs: 280, sm: 280, md: 280 }, flexBasis: '280px', flexGrow: 0, flexShrink: 0 }}>
+            <Box
+              sx={{
+                width: 300,
+                height: 350,
+                borderRadius: 2,
+                overflow: 'hidden',
+                position: 'relative',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                // Clean glass border only
+                '&:before': {
+                  content: '""',
+                  position: 'absolute',
+                  inset: 0,
+                  border: '1px solid rgba(255,255,255,0.4)',
+                  borderRadius: 'inherit',
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 100%)',
+                  zIndex: 2,
+                  pointerEvents: 'none',
+                },
+                // Tiny light reflection
+                '&:after': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 12,
+                  right: 12,
+                  width: 25,
+                  height: 25,
+                  background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 50%)',
+                  borderRadius: '50%',
+                  zIndex: 2,
+                  pointerEvents: 'none',
+                },
+                '&:hover': {
+                  transform: 'translateY(-8px) scale(1.01)',
+                  boxShadow: '0 20px 40px -10px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.3)',
+                  '&:before': {
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 100%)',
+                  },
+                },
+              }}
+            >
+              <img
+                src={src}
+                alt={`img-${idx}`}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 }
 
-export default App;
+export default ThreeImagesRowFixed;
