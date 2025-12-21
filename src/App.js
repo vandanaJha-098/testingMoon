@@ -43,8 +43,9 @@ const photos = [
 function App() {
   return (
     <Router>
-      <MyNavbar />
       <CompanyPage/>
+      <MyNavbar />
+     
     <Routes>
       <Route path="/" element={<Home photos={photos} photosPerPage={1} />} />
       <Route path="/contact" element={<ContactPage/>} />
