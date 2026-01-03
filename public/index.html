@@ -1,38 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/L.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    
-    <!-- SEO Meta Tags for Moontech Labs -->
-    <title>Moontech Labs Patna - Testing & Research Lab | mtrl.in</title>
-    <meta name="description" content="Moontech Labs - Premier NABL accredited testing and research laboratory in Patna, Bihar. Advanced material testing services at mtrl.in" />
-    <meta name="keywords" content="moontech labs, mtrl.in, patna testing lab, NABL laboratory patna, material testing bihar, soil testing patna, concrete testing bihar, research lab patna, building material testing" />
-    <meta name="author" content="Moontech Labs" />
-    
-    <!-- Open Graph for Social Media -->
-    <meta property="og:title" content="Moontech Labs - Testing & Research Laboratory Patna" />
-    <meta property="og:description" content="NABL accredited testing lab in Patna - Material testing services mtrl.in" />
-    <meta property="og:image" content="https://mtrl.in/photo/dda.jpg" />
-    <meta property="og:url" content="https://mtrl.in" />
-    <meta property="og:type" content="website" />
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Moontech Labs Patna" />
-    <meta name="twitter:description" content="Advanced testing laboratory - mtrl.in" />
-    
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/L.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    
-    <!-- Performance -->
-    <link rel="preconnect" href="https://mtrl.in" />
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-  </head>
-  <body>
-    <noscript>You need JavaScript enabled to view Moontech Labs testing services.</noscript>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/L.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  
+  <!-- SEO Meta Tags - Google Indexes These -->
+  <title>Moontech Labs Patna - NABL Testing & Research Lab | mtrl.in</title>
+  <meta name="description" content="Moontech Labs - Premier NABL accredited testing and research laboratory in Patna, Bihar. Advanced material testing services including soil testing, concrete testing, building material testing at mtrl.in" />
+  <meta name="keywords" content="moontech labs, mtrl.in, patna testing lab, NABL laboratory patna, material testing bihar, soil testing patna, concrete testing bihar, research lab patna, building material testing" />
+  <meta name="author" content="Moontech Labs" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Moontech Labs - Testing & Research Laboratory Patna" />
+  <meta property="og:description" content="NABL accredited testing lab in Patna - Material testing services mtrl.in" />
+  <meta property="og:image" content="https://mtrl.in/photo/dda.jpg" />
+  <meta property="og:url" content="https://mtrl.in" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Moontech Labs Patna" />
+  <meta name="twitter:description" content="Advanced testing laboratory - mtrl.in" />
+  
+  <link rel="apple-touch-icon" href="/L.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="preconnect" href="https://mtrl.in" />
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  
+  <!-- Bootstrap CSS (matches your App.js) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <noscript>JavaScript is required to view full Moontech Labs testing services.</noscript>
+  
+  <!-- REACT ROOT (hidden initially) -->
+  <div id="root" style="display: none;"></div>
+  
+  <!-- STATIC SEO CONTENT (Google indexes this immediately) -->
+  <div id="seo-content">
+    <div class="container mt-4">
+      <!-- Header/Logo Section -->
+      <header class="text-center mb-5">
+        <img src="/L.png" alt="Moontech Labs Logo" class="mb-3" style="max-height: 80px;">
+        <h1 class="display-4 fw-bold text-primary">Moontech Labs Patna</h1>
+        <p class="lead">NABL Accredited Testing & Research Laboratory</p>
+      </header>
+      
+      <!-- Main Content -->
+      <section class="row">
+        <div class="col-lg-8">
+          <h2>Premier Testing Laboratory in Patna, Bihar</h2>
+          <p>Moontech Labs provides advanced <strong>material testing services</strong> including soil testing, concrete testing, and building material testing. As a NABL accredited laboratory, we ensure accurate and reliable test results for construction projects across Bihar.</p>
+          
+          <h3 class="mt-4">Our Testing Services</h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">🔬 Soil Testing Patna</li>
+            <li class="list-group-item">🏗️ Concrete Testing Bihar</li>
+            <li class="list-group-item">📐 Building Material Testing</li>
+            <li class="list-group-item">✅ NABL Accredited Research Lab</li>
+            <li class="list-group-item">📋 Certifications & Consulting</li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Quick Links</h5>
+              <ul class="list-unstyled">
+                <li><a href="/services" class="text-decoration-none">Services</a></li>
+                <li><a href="/about" class="text-decoration-none">About Us</a></li>
+                <li><a href="/contact" class="text-decoration-none">Contact</a></li>
+                <li><a href="/client" class="text-decoration-none">Clients</a></li>
+                <li><a href="/accrediation" class="text-decoration-none">Accreditation</a></li>
+                <li><a href="/career" class="text-decoration-none">Careers</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Footer Links -->
+      <nav class="mt-5 pt-4 border-top text-center">
+        <a href="/services" class="btn btn-outline-primary me-2">Services</a>
+        <a href="/about" class="btn btn-outline-primary me-2">About</a>
+        <a href="/contact" class="btn btn-outline-primary">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Your React App JS (loads after static content) -->
+  <script type="module" src="/src/index.js" defer></script>
+  
+  <!-- Hide SEO content + show React when JS loads -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Hide static content, show React
+      document.getElementById('seo-content').style.display = 'none';
+      document.getElementById('root').style.display = 'block';
+    });
+  </script>
+</body>
 </html>
