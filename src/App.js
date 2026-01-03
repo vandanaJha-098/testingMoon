@@ -34,16 +34,16 @@ const photos = [
 
 function App() {
   return (
-    <HelmetProvider>  {/* WRAP everything */}
-      <Helmet>         {/* ONE Helmet only */}
-        <title>Moontech Labs Patna - NABL Testing & Research Lab | mtrl.in</title>
-        <meta name="description" content="Moontech Labs - Premier NABL accredited testing and research laboratory in Patna, Bihar. Advanced material testing services at mtrl.in" />
-        <meta name="keywords" content="moontech labs, mtrl.in, patna testing lab, NABL laboratory patna, material testing bihar, soil testing patna, concrete testing bihar" />
-        <meta property="og:title" content="Moontech Labs - Testing Laboratory Patna" />
-        <meta property="og:description" content="NABL accredited testing lab in Patna - mtrl.in" />
-        <meta property="og:image" content="https://mtrl.in/photo/MontechPhoto.jpg" />
-        <meta property="og:url" content="https://mtrl.in" />
-      </Helmet>
+    // <HelmetProvider>  {/* WRAP everything */}
+    //   <Helmet>         {/* ONE Helmet only */}
+    //     <title>Moontech Labs Patna - NABL Testing & Research Lab | mtrl.in</title>
+    //     <meta name="description" content="Moontech Labs - Premier NABL accredited testing and research laboratory in Patna, Bihar. Advanced material testing services at mtrl.in" />
+    //     <meta name="keywords" content="moontech labs, mtrl.in, patna testing lab, NABL laboratory patna, material testing bihar, soil testing patna, concrete testing bihar" />
+    //     <meta property="og:title" content="Moontech Labs - Testing Laboratory Patna" />
+    //     <meta property="og:description" content="NABL accredited testing lab in Patna - mtrl.in" />
+    //     <meta property="og:image" content="https://mtrl.in/photo/MontechPhoto.jpg" />
+    //     <meta property="og:url" content="https://mtrl.in" />
+    //   </Helmet>
 
       <Router>
         <CompanyPage/>
@@ -59,7 +59,7 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
-    </HelmetProvider>
+    // </HelmetProvider>
   );
 }
 
