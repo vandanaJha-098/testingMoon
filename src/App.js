@@ -1,5 +1,5 @@
-// import logo from './logo.svg';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import './App.css';
 import Home from './components/Home/Home';
 import MyNavbar from './components/Navbar/navbar';
@@ -20,7 +20,6 @@ import Photo6 from './photo/photo6.jpg';
 import Photo7 from './photo/photo7.jpg';
 import Photo8 from './photo/photo8.jpg';
 
-
 const photos = [
   { id: 11, url: MontechPhoto, title: 'Mountain' },
   { id: 1, url: Photo1, title: 'Photo 1' },
@@ -31,26 +30,41 @@ const photos = [
   { id: 6, url: Photo6, title: 'Photo 6' },
   { id: 7, url: Photo7, title: 'Photo 7' },
   { id: 8, url: Photo8, title: 'Photo 8' },
-  
 ];
 
 function App() {
   return (
-    <Router>
-      <CompanyPage/>
-      <MyNavbar />
-     
-    <Routes>
-      <Route path="/" element={<Home photos={photos} photosPerPage={1} />} />
-      <Route path="/contact" element={<ContactPage/>} />
-      <Route path="/client" element={<ThreeImagesRowFixed />} />
-      <Route path="/accrediation" element={<Home photos={photos} photosPerPage={1} />} />
-      <Route path="/career" element={<Home photos={photos} photosPerPage={1} />} />
-      <Route path="/about" element={<AboutUsPage/>} />
-      <Route path="/services" element={<ServicesPage/>} />
-    </Routes>
-    <Footer/>
-  </Router>
+    <HelmetProvider>
+      <Helmet>
+        <title>Moontech Labs Patna - NABL Testing & Research Lab | mtrl.in</title>
+        <meta name="description" content="Moontech Labs - Premier NABL accredited testing and research laboratory in Patna, Bihar. Advanced material testing services at mtrl.in" />
+        <meta name="keywords" content="moontech labs, mtrl.in, patna testing lab, NABL laboratory patna, material testing bihar, soil testing patna, concrete testing bihar, research lab patna, building material testing" />
+        <meta name="author" content="Moontech Labs" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Moontech Labs - Testing & Research Laboratory Patna" />
+        <meta property="og:description" content="NABL accredited testing lab in Patna - Material testing services mtrl.in" />
+        <meta property="og:image" content="https://mtrl.in/photo/MontechPhoto.jpg" />
+        <meta property="og:url" content="https://mtrl.in" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      <Router>
+        <CompanyPage/>
+        <MyNavbar />
+        
+        <Routes>
+          <Route path="/" element={<Home photos={photos} photosPerPage={1} />} />
+          <Route path="/contact" element={<ContactPage/>} />
+          <Route path="/client" element={<ThreeImagesRowFixed />} />
+          <Route path="/accrediation" element={<Home photos={photos} photosPerPage={1} />} />
+          <Route path="/career" element={<Home photos={photos} photosPerPage={1} />} />
+          <Route path="/about" element={<AboutUsPage/>} />
+          <Route path="/services" element={<ServicesPage/>} />
+        </Routes>
+        <Footer/>
+      </Router>
+    </HelmetProvider>
   );
 }
 
