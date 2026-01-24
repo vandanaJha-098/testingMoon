@@ -11,6 +11,7 @@ import ThreeImagesRowFixed from './components/Client/Client.jsx'
 import AboutUsPage from './components/About/About';
 import ServicesPage from './components/Service/Service';
 import MontechPhoto from './photo/MontechPhoto.jpg';
+import SingleImageFullPage from './components/accrediation/accrediation.jsx'
 import Photo1 from './photo/photo1.jpg';
 import Photo2 from './photo/photo2.png';
 import Photo3 from './photo/photo3.jpg';
@@ -52,7 +53,7 @@ function App() {
           <Route path="/" element={<Home photos={photos} photosPerPage={1} />} />
           <Route path="/contact" element={<ContactPage/>} />
           <Route path="/client" element={<ThreeImagesRowFixed />} />
-          <Route path="/accrediation" element={<Home photos={photos} photosPerPage={1} />} />
+          <Route path="/accrediation" element={<SingleImageFullPage/>} />
           <Route path="/career" element={<Home photos={photos} photosPerPage={1} />} />
           <Route path="/about" element={<AboutUsPage/>} />
           <Route path="/services" element={<ServicesPage/>} />
