@@ -64,14 +64,14 @@ function AboutUsPage() {
           }}
         >
           <Typography variant="h5" sx={{ fontWeight: 700, color: '#10b981', mb: 1 }}>
-            MOONTECH INDIA RESEARCH AND TESTING LAB PVT LTD
+            MOONTECH INDIA TESTING AND RESEARCH LAB PVT LTD
           </Typography>
         </Box>
 
         {/* Content Paragraph Cards */}
         <Stack spacing={3}>
           <ContentCard>
-            Established in early 2025, <b>MOONTECH INDIA RESEARCH AND TESTING LAB PVT LTD</b> is dedicated to delivering precise, accurate, and reliable testing services. Over the years, we have carved out a globally recognized position in the fields of <b>chemical</b> and <b>mechanical analytical testing</b>.
+            Established in early 2025, <b>MOONTECH INDIA TESTING AND RESEARCH LAB PVT LTD</b> is dedicated to delivering precise, accurate, and reliable testing services. Over the years, we have carved out a globally recognized position in the fields of <b>chemical</b> and <b>mechanical analytical testing</b>.
           </ContentCard>
           
           <ContentCard>
@@ -151,7 +151,7 @@ function AboutUsPage() {
           zIndex: 10,
         }}
       >
-        © 2025 MOONTECH INDIA RESEARCH AND TESTING LAB PVT LTD. All rights reserved.
+        © 2025 MOONTECH INDIA TESTING AND RESEARCH LAB PVT LTD. All rights reserved.
       </Box>
     </Box>
   );
