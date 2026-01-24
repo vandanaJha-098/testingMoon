@@ -1,10 +1,12 @@
+
+
 import React, { useState, useEffect } from 'react';
-import { Box, IconButton } from '@mui/material';
+import { Box, IconButton, Typography } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import LLogo from '../logo/L.png';  // ✅ Logo import
+import LLogo from '../logo/L.png';
 
-const LAB_NAME = "MOONTECH INDIA RESEARCH AND TESTING LAB PVT LTD";
+const LAB_NAME = "MOONTECH INDIA TESTING AND RESEARCH LAB PRIVATE LIMITED";
 
 function Home({ photos, photosPerPage = 6 }) {
   const [index, setIndex] = useState(0);
@@ -18,7 +20,7 @@ function Home({ photos, photosPerPage = 6 }) {
       handleNext();
     }, 3000);
     return () => clearInterval(interval);
-  }, [total]);
+  }, [handleNext]);
 
   return (
     <Box
@@ -30,12 +32,12 @@ function Home({ photos, photosPerPage = 6 }) {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        p: { xs: 1, sm: 2 },
+        p: { xs: 1, sm: 2, md: 4 },
         overflow: 'hidden',
         position: 'relative',
       }}
     >
-      {/* ✅ MOVING NAME + LOGO BACKGROUND */}
+      {/* Moving Logo + Name Header */}
       <Box
         sx={{
           width: '100%',
@@ -64,25 +66,10 @@ function Home({ photos, photosPerPage = 6 }) {
             width: '300%',
             display: 'flex',
             alignItems: 'center',
-            gap: '20px',  // ✅ Space between logo and text
+            gap: '20px',
           }}
         >
-          {/* ✅ LOGO + REPEATED TEXT */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px', width: '100%' }}>
-            <img 
-              src={LLogo}
-              alt="Moontech Logo"
-              style={{
-                height: 32,
-                width: 32,
-                borderRadius: '6px',
-                flexShrink: 0
-              }}
-            />
-            {LAB_NAME}
-          </div>
-          &nbsp; • &nbsp;
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
             <img 
               src={LLogo}
               alt="Moontech Logo"
@@ -126,168 +113,247 @@ function Home({ photos, photosPerPage = 6 }) {
         </span>
       </Box>
 
-      {/* ✅ REST OF COMPONENT UNCHANGED */}
+      {/* Main Content - Split Layout */}
       <Box
         sx={{
-          width: { xs: '95%', sm: '90%', md: '80%', lg: '70%' },
-          height: { 
-            xs: '250px', 
-            sm: '320px', 
-            md: '380px', 
-            lg: '450px',
-            xl: '550px' 
-          },
-          position: 'relative',
-          borderRadius: { xs: '16px', sm: '24px' },
-          overflow: 'hidden',
-          background: 'rgba(255,255,255,0.25)',
-          backdropFilter: 'blur(24px)',
-          border: '1px solid rgba(255,255,255,0.4)',
-          boxShadow: '0 25px 60px rgba(0,0,0,0.15)',
+          width: { xs: '95%', sm: '90%', md: '90%', lg: '85%' },
+          maxWidth: 1400,
+          mt: { xs: 2, sm: 3, md: 4 },
           display: 'flex',
-          alignItems: 'center',
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: { xs: 2, md: 4 },
+          alignItems: 'stretch',
           justifyContent: 'center',
-          mt: { xs: 1.5, sm: 2 },
-          mx: 1,
         }}
       >
+        {/* LEFT: Compact Info Box - 25% width */}
         <Box
           sx={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            animation: `slideFromRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`,
-            '& img': {
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              filter: 'brightness(0.95) contrast(1.1)',
-              transition: 'filter 0.5s ease',
-            },
-            '&:hover img': {
-              filter: 'brightness(1.05) contrast(1.2)',
-            },
+            flex: { xs: '1 1 100%', md: '0 0 25%' },
+            minHeight: { xs: 'auto', md: '500px' },
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
-          <img
-            src={photos[index].url}
-            alt={photos[index].title}
-            loading="lazy"
-          />
+          {/* Title with Background */}
+          <Box
+            sx={{
+              background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)',
+              color: 'white',
+              p: { xs: 2, md: 2.5 },
+              borderRadius: { xs: '12px 12px 0 0', md: '16px 16px 0 0' },
+              textAlign: 'center',
+              boxShadow: '0 8px 32px rgba(30,41,59,0.4)',
+              flexShrink: 0,
+            }}
+          >
+            <Typography 
+              variant="h5" 
+              sx={{ 
+                fontWeight: 700, 
+                fontSize: { xs: '1.1rem', md: '1.25rem' },
+                letterSpacing: '1px',
+              }}
+            >
+              CERTIFICATION
+            </Typography>
+          </Box>
+
+          {/* Info Content */}
+          <Box
+            sx={{
+              flex: 1,
+              p: { xs: 2.5, md: 3 },
+              background: 'rgba(255,255,255,0.9)',
+              backdropFilter: 'blur(20px)',
+              borderRadius: { xs: '0 0 12px 12px', md: '0 0 16px 16px' },
+              border: '1px solid rgba(255,255,255,0.6)',
+              borderTop: 'none',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
+              display: 'flex',
+              alignItems: 'center',
+              overflow: 'hidden',
+            }}
+          >
+            <Box sx={{ textAlign: 'center', maxWidth: 280, mx: 'auto' }}>
+              <Typography 
+                variant="h6" 
+                sx={{ 
+                  fontWeight: 700, 
+                  color: '#1e293b', 
+                  mb: 1.5,
+                  fontSize: { xs: '1.1rem', md: '1.25rem' }
+                }}
+              >
+                ISO/IEC 17025:2017
+              </Typography>
+              <Typography 
+                variant="body2" 
+                sx={{ 
+                  color: '#475569', 
+                  fontSize: { xs: '0.85rem', md: '0.95rem' },
+                  lineHeight: 1.6,
+                }}
+              >
+                "{LAB_NAME} has been assessed and accredited in accordance with the standard 
+                <strong> ISO/IEC 17025:2017 </strong> 
+                'General Requirements for the Competence of Testing & Calibration Laboratories'.
+              </Typography>
+            </Box>
+          </Box>
         </Box>
 
-        <IconButton
-          onClick={handlePrev}
-          sx={{ 
-            position: 'absolute', 
-            left: { xs: 8, sm: 16 },
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 20, 
-            background: 'rgba(255,255,255,0.3)',
-            backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255,255,255,0.5)',
-            color: '#1e293b',
-            width: { xs: 40, sm: 48 },
-            height: { xs: 40, sm: 48 },
-            borderRadius: { xs: '12px', sm: '16px' },
-            boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
-            transition: 'all 0.3s ease',
-            display: { xs: 'none', sm: 'flex' },
-            '&:hover': { 
-              background: 'rgba(255,255,255,0.5)',
-              transform: 'translateY(-50%) scale(1.1)',
-              boxShadow: '0 12px 35px rgba(0,0,0,0.2)',
-            }
-          }}
-        >
-          <ArrowBackIosIcon sx={{ fontSize: { xs: 18, sm: 20 } }} />
-        </IconButton>
-
-        <IconButton
-          onClick={handleNext}
-          sx={{ 
-            position: 'absolute', 
-            right: { xs: 8, sm: 16 },
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 20, 
-            background: 'rgba(255,255,255,0.3)',
-            backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255,255,255,0.5)',
-            color: '#1e293b',
-            width: { xs: 40, sm: 48 },
-            height: { xs: 40, sm: 48 },
-            borderRadius: { xs: '12px', sm: '16px' },
-            boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
-            transition: 'all 0.3s ease',
-            display: { xs: 'none', sm: 'flex' },
-            '&:hover': { 
-              background: 'rgba(255,255,255,0.5)',
-              transform: 'translateY(-50%) scale(1.1)',
-              boxShadow: '0 12px 35px rgba(0,0,0,0.2)',
-            }
-          }}
-        >
-          <ArrowForwardIosIcon sx={{ fontSize: { xs: 18, sm: 20 } }} />
-        </IconButton>
-
+        {/* RIGHT: Photo Slider - Takes remaining space */}
         <Box
           sx={{
-            position: 'absolute',
-            bottom: { xs: 12, sm: 20 },
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            gap: { xs: 0.5, sm: 1 },
-            background: 'rgba(255,255,255,0.3)',
-            backdropFilter: 'blur(16px)',
-            borderRadius: { xs: '16px', sm: '20px' },
-            p: { xs: 0.25, sm: 0.5 },
-            border: '1px solid rgba(255,255,255,0.5)',
-            width: { xs: '90%', sm: 'auto' },
-            justifyContent: { xs: 'space-evenly', sm: 'center' },
-            maxWidth: { xs: '200px', sm: 'none' },
+            flex: { xs: '1 1 100%', md: '0 0 75%' },
+            height: { xs: '300px', sm: '400px', md: '500px' },
+            position: 'relative',
+            borderRadius: { xs: 2, md: 3 },
+            overflow: 'hidden',
+            background: 'rgba(255,255,255,0.25)',
+            backdropFilter: 'blur(24px)',
+            border: '1px solid rgba(255,255,255,0.4)',
+            boxShadow: '0 25px 60px rgba(0,0,0,0.15)',
           }}
         >
-          {Array.from({ length: total }, (_, i) => (
-            <Box
-              key={i}
-              sx={{
-                width: { xs: 10, sm: 12 },
-                height: { xs: 10, sm: 12 },
-                borderRadius: '50%',
-                background: i === index ? '#1e293b' : 'rgba(255,255,255,0.5)',
-                boxShadow: i === index ? '0 0 12px rgba(30,41,59,0.5)' : 'none',
-                transition: 'all 0.3s ease',
-                cursor: 'pointer',
-                flex: 1,
-                maxWidth: { xs: 20, sm: 'none' },
-                '&:hover': {
-                  background: '#1e293b',
-                  transform: 'scale(1.2)',
-                },
-              }}
-              onClick={() => setIndex(i)}
+          <Box
+            sx={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              animation: `slideFromRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`,
+              '& img': {
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                filter: 'brightness(0.95) contrast(1.1)',
+                transition: 'filter 0.5s ease',
+              },
+              '&:hover img': {
+                filter: 'brightness(1.05) contrast(1.2)',
+              },
+            }}
+          >
+            <img
+              src={photos[index].url}
+              alt={photos[index].title}
+              loading="lazy"
             />
-          ))}
+          </Box>
+
+          {/* Navigation Arrows */}
+          <IconButton
+            onClick={handlePrev}
+            sx={{ 
+              position: 'absolute', 
+              left: { xs: 8, sm: 16 },
+              top: '50%',
+              transform: 'translateY(-50%)',
+              zIndex: 20, 
+              background: 'rgba(255,255,255,0.3)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255,255,255,0.5)',
+              color: '#1e293b',
+              width: { xs: 40, sm: 48 },
+              height: { xs: 40, sm: 48 },
+              borderRadius: { xs: '12px', sm: '16px' },
+              boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
+              transition: 'all 0.3s ease',
+              '&:hover': { 
+                background: 'rgba(255,255,255,0.5)',
+                transform: 'translateY(-50%) scale(1.1)',
+                boxShadow: '0 12px 35px rgba(0,0,0,0.2)',
+              }
+            }}
+          >
+            <ArrowBackIosIcon sx={{ fontSize: { xs: 18, sm: 20 } }} />
+          </IconButton>
+
+          <IconButton
+            onClick={handleNext}
+            sx={{ 
+              position: 'absolute', 
+              right: { xs: 8, sm: 16 },
+              top: '50%',
+              transform: 'translateY(-50%)',
+              zIndex: 20, 
+              background: 'rgba(255,255,255,0.3)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255,255,255,0.5)',
+              color: '#1e293b',
+              width: { xs: 40, sm: 48 },
+              height: { xs: 40, sm: 48 },
+              borderRadius: { xs: '12px', sm: '16px' },
+              boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
+              transition: 'all 0.3s ease',
+              '&:hover': { 
+                background: 'rgba(255,255,255,0.5)',
+                transform: 'translateY(-50%) scale(1.1)',
+                boxShadow: '0 12px 35px rgba(0,0,0,0.2)',
+              }
+            }}
+          >
+            <ArrowForwardIosIcon sx={{ fontSize: { xs: 18, sm: 20 } }} />
+          </IconButton>
+
+          {/* Dots Indicator */}
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: { xs: 12, sm: 20 },
+              left: '50%',
+              transform: 'translateX(-50%)',
+              display: 'flex',
+              gap: { xs: 0.5, sm: 1 },
+              background: 'rgba(255,255,255,0.3)',
+              backdropFilter: 'blur(16px)',
+              borderRadius: { xs: '16px', sm: '20px' },
+              p: { xs: 0.25, sm: 0.5 },
+              border: '1px solid rgba(255,255,255,0.5)',
+              width: { xs: '90%', sm: 'auto' },
+              justifyContent: { xs: 'space-evenly', sm: 'center' },
+            }}
+          >
+            {Array.from({ length: total }, (_, i) => (
+              <Box
+                key={i}
+                sx={{
+                  width: { xs: 10, sm: 12 },
+                  height: { xs: 10, sm: 12 },
+                  borderRadius: '50%',
+                  background: i === index ? '#1e293b' : 'rgba(255,255,255,0.5)',
+                  boxShadow: i === index ? '0 0 12px rgba(30,41,59,0.5)' : 'none',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                  flex: 1,
+                  maxWidth: { xs: 20, sm: 'none' },
+                  '&:hover': {
+                    background: '#1e293b',
+                    transform: 'scale(1.2)',
+                  },
+                }}
+                onClick={() => setIndex(i)}
+              />
+            ))}
+          </Box>
         </Box>
       </Box>
 
       <style jsx>{`
         @keyframes marquee {
-         0% { transform: translateX(0%); }
-         100% { transform: translateX(-33.333%); }
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-33.333%); }
         }
         @keyframes slideFromRight {
-         0% {
-           transform: translateX(100%);
-           opacity: 0;
-         }
-         100% {
-           transform: translateX(0);
-           opacity: 1;
-         }
+          0% {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(0);
+            opacity: 1;
+          }
         }
       `}</style>
     </Box>
