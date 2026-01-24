@@ -21,7 +21,7 @@ const Footer = () => {
     { label: 'Company', value: 'Moontech India Testing and Research Lab', icon: '🏢' },
     { label: 'Address', value: 'ChanakyaPuri Garikhana Khagaul (Back of Batala), Danapur, Bihar 801105', icon: '📍' },
     { label: 'Contact', value: '8809601830, 9718830384, 8986470795', icon: '📞' },
-    { label: 'Email', value: 'mtrlindiainfo@gmail.com', icon: '✉️' },
+    { label: 'Email', value: 'himanshu@mtrl.in, team@mtrl.in', icon: '✉️' },
   ];
 
   return (
