@@ -64,69 +64,81 @@ function AboutUsPage() {
           }}
         >
           <Typography variant="h5" sx={{ fontWeight: 700, color: '#10b981', mb: 1 }}>
-            MOONTECH INDIA TESTING AND RESEARCH LAB PVT LTD
+            MOONTECH INDIA TESTING AND RESEARCH LAB PRIVATE LIMITED
           </Typography>
         </Box>
 
         {/* Content Paragraph Cards */}
         <Stack spacing={3}>
           <ContentCard>
-            Established in early 2025, <b>MOONTECH INDIA TESTING AND RESEARCH LAB PVT LTD</b> is dedicated to delivering precise, accurate, and reliable testing services. Over the years, we have carved out a globally recognized position in the fields of <b>chemical</b> and <b>mechanical analytical testing</b>.
+            Established in early 2025, <b>MOONTECH INDIA TESTING AND RESEARCH LAB PRIVATE LIMITED</b> is dedicated to delivering precise, accurate, and reliable testing services. 
+            Over the years, we have carved out a globally recognized position in the fields of <b>chemical</b> and <b>mechanical analytical testing</b>.
           </ContentCard>
           
           <ContentCard>
-            Our state-of-the-art facility spans 2,000 sq. feet, featuring buildings at <b>Chanakyapuri, Khagual Gharikhana (Back of Batala), 801105</b>. Our team of seasoned professionals is committed to upholding both national and international standards throughout every stage of testing and analysis.
+            Our state-of-the-art facility spans 2,000 sq. feet, featuring buildings at <b>Chanakyapuri, Khagual Gharikhana (Back of Batala), 801105</b>. 
+            Our team of seasoned professionals is committed to upholding both national and international standards throughout every stage of testing and analysis.
           </ContentCard>
           
           <ContentCard>
-            We pride ourselves on understanding and meeting the needs of our esteemed clients, striving for maximum satisfaction. Every product is inspected in our advanced laboratory using cutting-edge technologies, ensuring the highest quality standards. Our ISO certifications further reinforce our commitment to excellence and client gratification.
+            **NABL Accredited & ISO/IEC 17025:2017 Certified** - We pride ourselves on understanding and meeting the needs of our esteemed clients, striving for maximum satisfaction. 
+            Every product is inspected in our advanced laboratory using cutting-edge technologies, ensuring the highest quality standards.
           </ContentCard>
           
           <ContentCard>
-            We offer a comprehensive range of testing solutions for metals & alloys, polymers, inorganic fine chemicals, and more. All tests are conducted under the guidance of our skilled and experienced professionals, guaranteeing reliability and competitive pricing.
+            We offer a comprehensive range of testing solutions for metals & alloys, polymers, inorganic fine chemicals, and more. 
+            All tests are conducted under the guidance of our skilled and experienced professionals, guaranteeing reliability and competitive pricing.
           </ContentCard>
           
           <ContentCard>
-            In a short span, we have earned immense appreciation from our clients and continue to grow and innovate in the material testing world. Our cooperative and skilled team is the backbone of our success, performing rigorous tests to ensure optimum quality for every client.
+            In a short span, we have earned immense appreciation from our clients and continue to grow and innovate in the material testing world. 
+            Our cooperative and skilled team is the backbone of our success, performing rigorous tests to ensure optimum quality for every client.
           </ContentCard>
         </Stack>
       </Box>
 
-      {/* ✅ GLASSY HIGHLIGHTS CARDS */}
+      {/* ✅ GLASSY HIGHLIGHTS CARDS - ADDED NABL & ISO */}
       <Grid container spacing={4} justifyContent="center" sx={{ maxWidth: 900, mb: 8, zIndex: 1 }}>
         <Grid item xs={12} md={4}>
           <HighlightCard
             icon={<VerifiedIcon sx={{ fontSize: 48, color: '#10b981' }} />}
-            title="ISO Certified"
-            desc="Certified for quality and reliability, adhering to national and international standards."
+            title="NABL Accredited"
+            desc="National Accreditation Board for Testing & Calibration Laboratories"
+          />
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <HighlightCard
+            icon={<VerifiedIcon sx={{ fontSize: 48, color: '#1e40af' }} />}
+            title="ISO/IEC 17025:2017"
+            desc="International standard for testing & calibration competence"
           />
         </Grid>
         <Grid item xs={12} md={4}>
           <HighlightCard
             icon={<EmojiEventsIcon sx={{ fontSize: 48, color: '#10b981' }} />}
             title="Global Recognition"
-            desc="Pioneering role in chemical and mechanical analytical testing with a global clientele."
+            desc="Pioneering role in chemical and mechanical analytical testing."
           />
         </Grid>
         <Grid item xs={12} md={4}>
           <HighlightCard
             icon={<GroupsIcon sx={{ fontSize: 48, color: '#10b981' }} />}
             title="Expert Team"
-            desc="Managed by experienced professionals dedicated to client satisfaction and excellence."
+            desc="Seasoned professionals dedicated to excellence and quality."
           />
         </Grid>
         <Grid item xs={12} md={4}>
           <HighlightCard
             icon={<ScienceIcon sx={{ fontSize: 48, color: '#10b981' }} />}
             title="Advanced Lab"
-            desc="State-of-the-art laboratory with high-tech equipment and rigorous quality checks."
+            desc="2,000 sq.ft state-of-the-art facility with cutting-edge equipment."
           />
         </Grid>
         <Grid item xs={12} md={4}>
           <HighlightCard
             icon={<LocationOnIcon sx={{ fontSize: 48, color: '#10b981' }} />}
             title="Strategic Location"
-            desc="Located at Chanakyapuri, Khagual Gharikhana (Back of Batala), 801105."
+            desc="Chanakyapuri, Khagual Gharikhana (Back of Batala), 801105."
           />
         </Grid>
       </Grid>
@@ -151,7 +163,7 @@ function AboutUsPage() {
           zIndex: 10,
         }}
       >
-        © 2025 MOONTECH INDIA TESTING AND RESEARCH LAB PVT LTD. All rights reserved.
+        © 2025-2026 MOONTECH INDIA TESTING AND RESEARCH LAB PRIVATE LIMITED. All rights reserved. | NABL Accredited & ISO/IEC 17025:2017 Certified
       </Box>
     </Box>
   );
@@ -181,14 +193,14 @@ function ContentCard({ children }) {
   );
 }
 
-// ✅ GLASSY HIGHLIGHT CARD (MATCHING OTHER COMPONENTS)
+// ✅ GLASSY HIGHLIGHT CARD (MATCHING HOME PAGE STYLE)
 function HighlightCard({ icon, title, desc }) {
   return (
     <Box
       sx={{
         p: 4,
         borderRadius: '20px',
-        // ✅ WHITE GLASS STYLE
+        // ✅ WHITE GLASS STYLE MATCHING HOME PAGE
         background: 'rgba(255,255,255,0.25)',
         backdropFilter: 'blur(24px)',
         border: '1px solid rgba(255,255,255,0.4)',
