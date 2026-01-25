@@ -313,7 +313,12 @@ function Home({ photos = PHOTOS }) {
             border: '1px solid rgba(255,255,255,0.5)', color: '#1e293b',
             width: { xs: 48, sm: 56 }, height: { xs: 48, sm: 56 },
             borderRadius: '16px', boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
-            '&:hover': { background: 'rgba(255,255,255,0.5)', scale: 1.1 }
+            transition: 'all 0.3s ease',
+            '&:hover': { 
+              background: 'rgba(255,255,255,0.5)', 
+              transform: 'translateY(-50%) scale(1.1)',
+              boxShadow: '0 12px 35px rgba(0,0,0,0.2)'
+            }
           }}>
             <ArrowBackIosIcon sx={{ fontSize: { xs: 20, sm: 24 } }} />
           </IconButton>
@@ -324,7 +329,12 @@ function Home({ photos = PHOTOS }) {
             border: '1px solid rgba(255,255,255,0.5)', color: '#1e293b',
             width: { xs: 48, sm: 56 }, height: { xs: 48, sm: 56 },
             borderRadius: '16px', boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
-            '&:hover': { background: 'rgba(255,255,255,0.5)', scale: 1.1 }
+            transition: 'all 0.3s ease',
+            '&:hover': { 
+              background: 'rgba(255,255,255,0.5)', 
+              transform: 'translateY(-50%) scale(1.1)',
+              boxShadow: '0 12px 35px rgba(0,0,0,0.2)'
+            }
           }}>
             <ArrowForwardIosIcon sx={{ fontSize: { xs: 20, sm: 24 } }} />
           </IconButton>
@@ -350,17 +360,21 @@ function Home({ photos = PHOTOS }) {
           </Box>
         </Box>
 
-        {/* 2. Accreditation - INCREASED HEIGHT */}
+        {/* 2. Accreditation - INCREASED MOBILE HEIGHT */}
         <Box sx={{
           width: '100%',
-          height: { xs: '380px', sm: '420px', md: '480px' }, // 👈 INCREASED HEIGHTS
+          height: { 
+            xs: '460px',    // 📱 Mobile: 380px → 460px (+80px)
+            sm: '480px',    // 📱 Tablet: 420px → 480px (+60px) 
+            md: '520px'     // 💻 Desktop: 480px → 520px (+40px)
+          },
           display: 'flex', flexDirection: 'column',
           mt: { xs: 2, sm: 3, md: 4 },
         }}>
           <Box sx={{
             background: 'linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #1d4ed8 100%)', 
             color: 'white',
-            p: { xs: 3, sm: 3.5, md: 4 }, // 👈 MORE PADDING
+            p: { xs: 3, sm: 3.5, md: 4 },
             borderRadius: '24px 24px 0 0', 
             textAlign: 'center',
             boxShadow: '0 20px 60px rgba(30,58,138,0.4)', 
@@ -370,7 +384,7 @@ function Home({ photos = PHOTOS }) {
               variant="h5" 
               sx={{ 
                 fontWeight: 800, 
-                fontSize: { xs: '1.3rem', sm: '1.45rem', md: '1.6rem' }, // 👈 BIGGER TITLE
+                fontSize: { xs: '1.3rem', sm: '1.45rem', md: '1.6rem' },
                 letterSpacing: '1.2px',
                 textShadow: '0 2px 8px rgba(0,0,0,0.3)'
               }}
@@ -381,7 +395,7 @@ function Home({ photos = PHOTOS }) {
           
           <Box sx={{
             flex: 1, 
-            p: { xs: 4, sm: 5, md: 6 }, // 👈 INCREASED PADDING
+            p: { xs: 4, sm: 5, md: 6 },
             background: 'rgba(255,255,255,0.97)', 
             backdropFilter: 'blur(24px)',
             borderRadius: '0 0 24px 24px', 
@@ -394,9 +408,9 @@ function Home({ photos = PHOTOS }) {
           }}>
             <Box sx={{ 
               textAlign: 'center', 
-              maxWidth: { xs: 320, sm: 380, md: 450 }, // 👈 WIDER CONTENT
+              maxWidth: { xs: 320, sm: 380, md: 450 },
               mx: 'auto',
-              lineHeight: 1.4 // 👈 BETTER LINE HEIGHT
+              lineHeight: 1.4
             }}>
               <Typography 
                 variant="h6" 
@@ -404,7 +418,7 @@ function Home({ photos = PHOTOS }) {
                   fontWeight: 800, 
                   color: '#1e293b', 
                   mb: 3, 
-                  fontSize: { xs: '1.15rem', sm: '1.25rem', md: '1.35rem' } // 👈 BIGGER
+                  fontSize: { xs: '1.15rem', sm: '1.25rem', md: '1.35rem' }
                 }}
               >
                 MOONTECH INDIA TESTING AND RESEARCH LAB PRIVATE LIMITED
@@ -416,7 +430,7 @@ function Home({ photos = PHOTOS }) {
                   fontWeight: 600, 
                   color: '#1e293b', 
                   mb: 4,
-                  fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' }, // 👈 BIGGER
+                  fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
                   lineHeight: 1.5
                 }}
               >
@@ -430,7 +444,7 @@ function Home({ photos = PHOTOS }) {
                   background: 'linear-gradient(135deg, #1e40af, #3b82f6)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  fontSize: { xs: '1.6rem', sm: '1.85rem', md: '2.1rem' }, // 👈 BIGGER
+                  fontSize: { xs: '1.6rem', sm: '1.85rem', md: '2.1rem' },
                   mb: 3,
                   letterSpacing: '-0.03em'
                 }}
@@ -442,7 +456,7 @@ function Home({ photos = PHOTOS }) {
                 variant="body1" 
                 sx={{ 
                   color: '#475569', 
-                  fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' }, // 👈 BIGGER
+                  fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
                   lineHeight: 1.6,
                   fontWeight: 500,
                   fontStyle: 'italic',
