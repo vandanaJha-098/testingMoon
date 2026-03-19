@@ -14,23 +14,29 @@ import MontechPhoto from './photo/MontechPhoto.jpg';
 import SingleImageFullPage from './components/accrediation/accrediation.jsx'
 import Photo1 from './photo/photo1.jpg';
 import Photo2 from './photo/photo2.png';
-import Photo3 from './photo/photo3.jpg';
-import Photo4 from './photo/photo4.jpg';
-import Photo5 from './photo/photo5.jpg';
-import Photo6 from './photo/photo6.jpg';
-import Photo7 from './photo/photo7.jpg';
-import Photo8 from './photo/photo8.jpg';
+import Photo3 from './photo/photo3.jpeg';
+import Photo4 from './photo/photo4.jpeg';
+import Photo5 from './photo/photo5.jpeg';
+import Photo6 from './photo/photo6.jpeg';
+import Photo7 from './photo/photo7.jpeg';
+import Photo8 from './photo/photo8.jpeg';
+import Photo11 from './photo/photo11.jpeg';
+import Photo12 from './photo/photo12.jpeg';
+import Photo13 from './photo/photo13.jpeg';
+import Photo14 from './photo/photo14.jpeg';
+import Photo9 from './photo/photo9.jpeg';
+import Photo10 from './photo/photo10.jpeg';
+import ThreeImagesRowFixed1 from "./components/Photos/photos.jsx";
 
 const photos = [
   { id: 11, url: MontechPhoto, title: 'Mountain' },
   { id: 1, url: Photo1, title: 'Photo 1' },
   { id: 2, url: Photo2, title: 'Photo 2' },
-  { id: 3, url: Photo3, title: 'Photo 3' },
-  { id: 4, url: Photo4, title: 'Photo 4' },
   { id: 5, url: Photo5, title: 'Photo 5' },
-  { id: 6, url: Photo6, title: 'Photo 6' },
-  { id: 7, url: Photo7, title: 'Photo 7' },
-  { id: 8, url: Photo8, title: 'Photo 8' },
+  { id: 9, url: Photo9, title: 'Photo 9' },
+  { id: 10, url: Photo10, title: 'Photo 10' },
+  { id: 12, url: Photo12, title: 'Photo 12' },
+
 ];
 
 function App() {
@@ -42,21 +48,22 @@ function App() {
     //     <meta name="keywords" content="moontech labs, mtrl.in, patna testing lab, NABL laboratory patna, material testing bihar, soil testing patna, concrete testing bihar" />
     //     <meta property="og:title" content="Moontech Labs - Testing Laboratory Patna" />
     //     <meta property="og:description" content="NABL accredited testing lab in Patna - mtrl.in" />
-    //     <meta property="og:image" content="https://mtrl.in/photo/MontechPhoto.jpg" />
+    //     <meta property="og:image" content="https://mtrl.in/photo/MontechPhoto.jpeg" />
     //     <meta property="og:url" content="https://mtrl.in" />
       // </Helmet>
 
       <Router>
-        <CompanyPage/>
+        <CompanyPage  />
         <MyNavbar />
         <Routes>
           <Route path="/" element={<Home photos={photos} photosPerPage={1} />} />
           <Route path="/contact" element={<ContactPage/>} />
           <Route path="/client" element={<ThreeImagesRowFixed />} />
           <Route path="/accrediation" element={<SingleImageFullPage/>} />
-          <Route path="/career" element={<Home photos={photos} photosPerPage={1} />} />
+          <Route path="/equipment" element={<ThreeImagesRowFixed1/>} />
           <Route path="/about" element={<AboutUsPage/>} />
           <Route path="/services" element={<ServicesPage/>} />
+          <Route path="/photo" element={<ThreeImagesRowFixed1/>} />
         </Routes>
         <Footer/>
       </Router>
