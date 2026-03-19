@@ -7,7 +7,7 @@ function MyNavbar() {
     { href: '/', label: 'HOME' },
     { href: '/about', label: 'ABOUT' },
     { href: '/services', label: 'SERVICES' },
-    { href: '/career', label: 'CAREER' },
+    { href: '/equipment', label: 'EQUIPMENTS' },
     { href: '/client', label: 'CLIENTS' },
     { href: '/accrediation', label: 'ACCREDIATION' },
     { href: '/contact', label: 'CONTACT' }
