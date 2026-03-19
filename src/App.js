@@ -13,7 +13,7 @@ import ServicesPage from './components/Service/Service';
 import MontechPhoto from './photo/MontechPhoto.jpg';
 import SingleImageFullPage from './components/accrediation/accrediation.jsx'
 import Photo1 from './photo/photo1.jpg';
-import Photo2 from './photo/photo2.png';
+import Photo2 from './photo/photo2.jpeg';
 import Photo3 from './photo/photo3.jpeg';
 import Photo4 from './photo/photo4.jpeg';
 import Photo5 from './photo/photo5.jpeg';
